@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+import React from 'react';
+import  NavBar  from './componentes/Header/NavBar';
+import  ItemListContainer  from './componentes/Productos/ItemListContainer';
+import  ItemCount  from './componentes/Productos/ItemCount';
 import './App.css';
+import 'boxicons';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <ItemListContainer />
+      <ItemCount  initial={1} stock={5} />
     </div>
   );
 }

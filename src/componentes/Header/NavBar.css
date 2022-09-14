@@ -1,0 +1,26 @@
+.header {
+    background-color:#F2E2C4;
+  }
+  .navbar-brand{
+    font-family: 'Dancing Script', cursive;
+    font-size: 35px;
+  }
+  .nav-item{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    color: #3F4E4F;
+  }
+  
+  #navbarNav a:hover,
+  .react-icons:hover{
+    color: #734A3C;
+  }
+  
+  #dropMenu {
+    background-color: #F2E2C4;
+  }
+  nav .dropdown-menu a:hover {
+    background-color: #D3C5D9;
+   }
