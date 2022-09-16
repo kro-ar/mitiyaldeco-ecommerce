@@ -4,7 +4,7 @@ export const customFetch =(items) =>
         
     setTimeout(() => {
         resolve(items)
-    }, 2000)
+    },)
 })
 
 }

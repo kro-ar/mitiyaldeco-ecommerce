@@ -1,4 +1,5 @@
 import React, {useState , useEffect} from 'react'
+import { useParams } from 'react-router-dom'
 import products from '../../utils/dataBase'
 import { customFetch } from '../../utils/customFetch'
 import ItemList from './ItemList'
@@ -6,6 +7,7 @@ import ItemList from './ItemList'
 const ItemListContainer = () => {
 
   const [listProducts, setListProducts] = useState([])
+
 
   useEffect(() => {
     customFetch(products)

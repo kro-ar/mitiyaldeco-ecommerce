@@ -1,18 +1,18 @@
 const products = [
     {
         id:1,
-        tittle: "Cascada Buda",
+        tittle: "Cascada",
         price: 900,
-        detail: "Cascada Buda aprox 10cm de altura ,no incluye cono",
-        img : "https://tienda.lanus.gob.ar/assets/uploads/productos/user_4190_publicacion_ECC29D6315804992BE9C72BC2E716EC8.jpeg",
+        detail: "Cascada aprox 10cm de altura ,no incluye cono",
+        img : "https://i.ibb.co/y5Chzxm/244618959-169432425362954-6574241706868509034-n.jpg",
         category: "cascada",
     },
     {
         id:2,
-        tittle: "Cascada Buda + Conos",
+        tittle: "Cascada + Conos",
         price: 1900,
         detail: "Cascada Buda aprox 10cm de altura ,incluye un pack de conos",
-        img : "https://www.tiendafacil.com.ar/tienda/uploads/400x400/1624976657_6ef01d39.jpg",
+        img : "https://i.ibb.co/rb52gBW/242992235-380449370282399-2608009411594002261-n.jpg",
         category: "combo",
     },
     {
@@ -25,10 +25,10 @@ const products = [
     },
     {
         id:4,
-        tittle: "Cascada Buda + Conos",
+        tittle: "Maceta Mandala",
         price: 500,
         detail: "Macetas pintadas a mano,ideal para decorar interiores. Medidas aproximadas 10cm x 5cm,valor unitario.",
-        img : "https://i.pinimg.com/originals/5d/c3/ef/5dc3ef69356df5db31961e32179a8f00.jpg",
+        img : "https://i.ibb.co/b1PShBd/256250643-197689095881200-3276449855154845717-n.jpg",
         category: "macetas",
     },
 

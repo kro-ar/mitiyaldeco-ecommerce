@@ -2,19 +2,17 @@ import React from 'react'
 import { FiTag , FiClipboard} from 'react-icons/fi'
 import './Productos.css'
 
- const Item = ({product}) => {
+ const Item = ({id , tittle, price , detail , img}) => {
 
   return (
     <>
-      <div className="card" id={product.id} style={{ width: '18rem' }}>
+      <div className="card" id={id} style={{ width: '18rem' }}>
       <div>
-        <img src={product.img} className="card-img-top"  />
+        <img src={img} className="card-img-top" />
       </div>
       <div className="card-body">
-        <h5 className="card-title">{product.tittle}</h5>
-        <p className="card-text"> <FiTag/>Precio: ${product.price}</p>
-        <p className='card-text'><FiClipboard/> Detalles: {product.detail} </p>
-
+        <h5 className="card-title">{tittle}</h5>
+        <p className="card-text"> <FiTag/>${price}</p>
       </div>
     </div>
     </>

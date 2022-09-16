@@ -26,8 +26,8 @@ const ItemCount = ({initial , stock}) => {
   };
 
   return (
-    <div className="AddButtons d-flex flex-column align-items-center m-3">
-      <div className="Buttons my-1 py-1">
+    <div className="d-flex flex-column align-items-center m-3">
+      <div className=" my-1 py-1">
         <a
           href="#"
           onClick={() => {
