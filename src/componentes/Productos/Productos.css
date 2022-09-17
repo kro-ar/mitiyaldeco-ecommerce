@@ -48,12 +48,10 @@
     /*ItemListContainer Css*/
     
     /*ItemList Css*/
-
+    
     #itemList{
         display: flex;
-        width: 50%;
         margin: auto;
-        justify-content: space-between;
         flex-wrap: wrap;
         gap: 2rem;
 

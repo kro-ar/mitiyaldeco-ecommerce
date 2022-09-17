@@ -6,7 +6,9 @@ import "./Productos.css";
 const Item = ({ product , price , img , tittle }) => {
   return (
     <>
-      <div className="card m-4" id={product.id} style={{ width: "18rem" }}>
+    <div className="row">
+      <div className="col col-sm-12 col-md-6 col-lg-4">
+        <div className="card m-4" id={product.id} style={{ width: "18rem" }}>
         <div>
           <img src={img} className="card-img-top" />
         </div>
@@ -24,6 +26,9 @@ const Item = ({ product , price , img , tittle }) => {
           </Link>
         </div>
       </div>
+      </div>
+    </div>
+      
     </>
   );
 };

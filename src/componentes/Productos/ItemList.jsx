@@ -6,7 +6,7 @@ import './Productos.css'
 const ItemList = ({listProducts}) => {
 
   return (
-    <div className=" card-group itemList">
+    <div className="card-group itemList justify-content-center">
     {listProducts.map((product)=> (
         <Item product={product}
         key={product.id} 
