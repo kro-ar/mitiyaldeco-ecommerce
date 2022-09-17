@@ -1,14 +1,21 @@
 import { useState, useEffect } from "react"
 import ItemDetail from "./ItemDetail"
 import products from "../../utils/dataBase"
-import { customFetch } from "../../utils/customFetch"
+import { useParams } from "react-router-dom";
+import { customFetch } from "../../utils/customFetch";
 
 const ItemDetailContainer = () => {
   const [detailProducts, setDetailProducts] = useState({});
+  const {id} = useParams()
+
 
   useEffect(() => {
-    customFetch(products[2]).then((data) => setDetailProducts(data));
-  }, []);
+    if (id){
+      customFetch(products.find((item) => item.id == id))
+      .then((data) => setDetailProducts(data));
+    }
+    
+  }, [id]);
 
   return(
     <div>
