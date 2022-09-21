@@ -27,6 +27,6 @@ Se abre una pestaña del navegador en el puerto 3000:
 ### Sino copiar esta URL y pegarla en el navegador: `http://localhost:3000`
 
 ## Estructura
-![estructura]![image](https://user-images.githubusercontent.com/56145905/191438479-ffb22b7d-7ae6-456a-91bf-b884aeb88a72.png)
+![estructura](https://user-images.githubusercontent.com/56145905/191438479-ffb22b7d-7ae6-456a-91bf-b884aeb88a72.png)
 
 
