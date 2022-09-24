@@ -1,8 +1,10 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import ItemCount from "./ItemCount";
 
-const ItemDetail = ({ detailProducts:detalle }) => {
+const ItemDetail = ({ detailProducts:detalle , onAdd , added:añadido }) => {
+  
   return (
 
     <main>
@@ -17,8 +19,13 @@ const ItemDetail = ({ detailProducts:detalle }) => {
         <div className="detailP">
           <p className="detail"> {detalle.detail} </p>
         </div>
+        {
+           (añadido)
+            ? <Link to="/cart"><button type="button" class="btn btn-secondary">Ir al carrito! </button></Link> 
+            : <ItemCount initial={1} stock={detalle.stock} onAdd={onAdd} />
+          
+        }
         
-        <ItemCount initial={1} stock={5} />
       </div>
       
     </div>

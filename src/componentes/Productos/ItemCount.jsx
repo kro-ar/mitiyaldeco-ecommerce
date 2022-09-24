@@ -1,29 +1,28 @@
-import React from 'react'
-import {FiPlus , FiMinus} from 'react-icons/fi'
-import { useState } from 'react'
-import  './Productos.css';
+import React from "react";
+import { FiPlus, FiMinus } from "react-icons/fi";
+import { useState, useContext } from "react";
+import "./Productos.css";
 
-
-const ItemCount = ({initial , stock}) => {
-  const [count,setCount] = useState(initial)
+const ItemCount = ({ initial, stock, onAdd }) => {
+  const [count, setCount] = useState(initial);
 
   // funcion HandlerAdd (sumar)
-  const HandlerAdd = () =>{
-      if (count < stock) {
-       setCount(count + 1)    
-      } 
+  const HandlerAdd = () => {
+    if (count < stock) {
+      setCount(count + 1);
+    }
   };
-    // funcion HandlerRest (restar)
-  const HandlerRest = () =>{
-      if (count > initial){
-       setCount (count - 1)   
-      }    
+  // funcion HandlerRest (restar)
+  const HandlerRest = () => {
+    if (count > initial) {
+      setCount(count - 1);
+    }
   };
-    // funcion onAdd (Avisa cuantos items se agregan al carrito)
-  const onAdd = () =>{
-      setCount(count)
-      alert(`se agregaron ${count} al carrito`)
-  };
+/*   // funcion onAdd (Avisa cuantos items se agregan al carrito)
+  const onAdd = () => {
+    setCount(count);
+    alert(`se agregaron ${count} al carrito`);
+  }; */
 
   return (
     <div className="d-flex flex-column align-items-center m-3">
@@ -50,16 +49,10 @@ const ItemCount = ({initial , stock}) => {
         <button
           type="button"
           className="btn py-0 "
-          onClick={() => {
-            onAdd(count);
-          }}
-        >
-          Añadir al carrito!
-        </button>
+          onClick={()=> onAdd (count)}> Añadir al carrito! </button>
       </div>
     </div>
   );
-}
+};
 
-export default ItemCount
-
+export default ItemCount;
