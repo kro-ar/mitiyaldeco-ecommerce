@@ -27,7 +27,7 @@ const Cart = ()=>{
                 <div className="col-3 mono-text SummaryCart m-4 row">
                     <h3 className="text-center mono-text py-3">Su orden</h3>
                     <p className="col-6"><strong>Total:</strong></p>
-                    <p className="col-6"><strong>${ctx.total}</strong> </p>
+                    <p className="col-6"><strong>${ctx.totals}</strong> </p>
                 </div>
             </section>
         </main>

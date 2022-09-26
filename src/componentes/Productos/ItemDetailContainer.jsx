@@ -22,7 +22,7 @@ const ItemDetailContainer = () => {
   const onAdd =(count)=>{
     alert(`Se agrego ${detailProducts.tittle} cantidad ${count} al carrito`);
     setAdded(true)
-    ctx.addItem(detailProducts)
+    ctx.addItem(detailProducts,count)
   }
 
 
