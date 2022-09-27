@@ -8,11 +8,8 @@ const CartContextProvider = ({children})=>{
     //Funciones globales
     const addItem = (item, quantity)=>{ // agregar cierta cantidad de un ítem al carrito
         if(isInCart(item.id)){
-            //Recorro la lista e incremento la cantidad de producto seleccionado
             let array = cartList.map(element=>(
-                //Si el elemento no tiene ese id devuelve el mismo elemento 
-                //De ser coincidir se envia el objeto con la cantidad incrementada
-                (element.id!=item.id )? 
+                (element.id!==item.id )? 
                 element:
                 {
                     id:element.id,
@@ -40,8 +37,8 @@ const CartContextProvider = ({children})=>{
     }
     const clear = ()=>{ setCartList([])} // Remover todos los items
     const isInCart = (id) =>{
-        return cartList.filter(item=> item.id == parseInt(id)).length > 0
-    } //true|false
+        return cartList.filter(item=> item.id === parseInt(id)).length > 0
+    }
     const costTotal = (list)=>{
         console.log(list)
         if(list.length>0){
@@ -53,8 +50,14 @@ const CartContextProvider = ({children})=>{
             settotals(0)
         }
     }
+    //bagde items
+    const itemCartQty =()=>{
+        let cartQty = cartList.map((producto)=> producto.quantity )
+        return(cartQty.reduce((acumQtys, quantity )=> acumQtys+=quantity,0))
+    }
+    
     return(
-        <CartContext.Provider value={{cartList,totals, addItem, removeItem, clear, isInCart ,costTotal}}>
+        <CartContext.Provider value={{cartList,totals, addItem, removeItem, clear, isInCart ,costTotal , itemCartQty}}>
             {children}
         </CartContext.Provider>
     )

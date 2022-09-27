@@ -6,7 +6,7 @@ const ItemCart = ({product})=>{
 
     return(
             <section className="row ItemCartCard mx-5 my-4 p-2">
-                <div className="col-4 -flex justify-content-center">
+                <div className="col-4 d-flex justify-content-center">
                     <img className="img-thumbnail" src={product.img}></img>
                 </div>
                 <div className="col-8 mono-text">
