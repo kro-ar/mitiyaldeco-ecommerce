@@ -1,9 +1,12 @@
 import { useState, useEffect , useContext } from "react"
 import ItemDetail from "./ItemDetail"
-import products from "../../utils/dataBase"
 import { useParams } from "react-router-dom";
 import { customFetch } from "../../utils/customFetch";
 import { CartContext } from "./CartContext";
+import { getDoc, doc } from "firebase/firestore";
+import { db } from "../../utils/firebaseConfig";
+import Item from "./Item";
+
 
 const ItemDetailContainer = () => {
   const [detailProducts, setDetailProducts] = useState({});
@@ -12,10 +15,12 @@ const ItemDetailContainer = () => {
   const ctx = useContext(CartContext)
 
   useEffect(() => {
-    if (id){
-      customFetch(products.find((item) => item.id == id))
-      .then((data) => setDetailProducts(data));
-    }
+    const getData = async () => {
+      const docSnap=await getDoc(doc(db , "products" , id))
+      const productoD={id: id , ...docSnap.data()}
+      setDetailProducts(productoD)
+    };
+    getData();
     
   }, [id]);
 
