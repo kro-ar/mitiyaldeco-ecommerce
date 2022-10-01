@@ -13,7 +13,6 @@ const Cart = () => {
 
   useEffect(() => {
     setTotalCost(ctx.costTotal);
-    setIsEmpty(ctx.ItemsTotal == 0);
   }, [ctx]);
 
   const createOrder = async () => {
@@ -31,13 +30,14 @@ const Cart = () => {
       },
       items: itemsForDB,
       date: serverTimestamp(),
-      total: ctx.costTotal,
+      total: ctx.costTotal(),
     };
-  
-    //se crea orders ,en la base de datos
-    const newOrderRef = doc(collection(db, "orders"));
-    await setDoc(newOrderRef, order)
-    alert(
+
+    //se crea tickets ,en la base de datos
+    const newOrderRef = doc(collection(db, 'tickets'));
+     await setDoc(newOrderRef, order); 
+    
+     alert(
       "Su orden ha sido procesada! Su numero de orden es " + newOrderRef.id
     );
   };
@@ -59,14 +59,13 @@ const Cart = () => {
           </div>
         </div>
         <div className="col-8 ">
-          {isEmpty ? (
-            <h2 className="text-center">Agregue algun producto</h2>
-          ) : (
+          {
+          
             //Se mapea el contenido y se imprime en la lista
             ctx.cartList.map((item) => (
               <ItemCart product={item} key={item.id} />
             ))
-          )}
+          }
         </div>
         <div className="row col-3">
           <h3 className="text-center ">Su orden</h3>
