@@ -4,7 +4,7 @@ export const CartContext = createContext();
 
 const CartContextProvider = ({ children }) => {
   const [cartList, setCartList] = useState([]);
-  const [totals, settotals] = useState(0);
+
   //Funciones globales
   const addItem = (item, quantity) => {
     // agregar cierta cantidad de un ítem al carrito
@@ -24,37 +24,44 @@ const CartContextProvider = ({ children }) => {
               key: element.id,
             }
       );
-      console.log(array);
       setCartList(array);
     } else {
       item.quantity = quantity;
       setCartList([...cartList, item]);
     }
-    costTotal([...cartList, item]);
+
   };
   const removeItem = (itemId) => {
-    // Remover un item del cart por usando su id
+    // Eliminar de la orden usando su id
     setCartList(cartList.filter((item) => item.id !== itemId));
-    costTotal(cartList.filter((item) => item.id !== itemId));
   };
   const clear = () => {
     setCartList([]);
   }; // Remover todos los items
   const isInCart = (id) => {
-    return cartList.filter((item) => item.id === parseInt(id)).length > 0;
+    return cartList.filter((item) => item.id == parseInt(id)).length > 0;
   };
-  const costTotal = (list) => {
-    console.log(list);
-    if (list.length > 0) {
-      let costos = list.map((item) => item.price * item.quantity);
-      settotals(
-        costos.reduce((a, b) => {
-          return a + b;
-        })
-      );
-    } else {
-      settotals(0);
+  const costTotal = () => {
+    let total = 0;
+    if (cartList.length > 0) {
+      let costos = cartList.map((item) => item.price * item.quantity);
+      total = costos.reduce((a, b) => {
+        return a + b;
+      });
     }
+    return total;
+  };
+  const ItemsTotal = () => {
+    let items = 0;
+    if (cartList.length > 0) {
+      items = cartList.map((item) => item.quantity);
+      items.length == 1
+        ? (items = cartList[0].quantity)
+        : (items = items.reduce((a, b) => {
+            return a + b;
+          }));
+    }
+    return items;
   };
   //bagde items
   const itemCartQty = () => {
@@ -66,13 +73,13 @@ const CartContextProvider = ({ children }) => {
     <CartContext.Provider
       value={{
         cartList,
-        totals,
+        ItemsTotal,
         addItem,
         removeItem,
         clear,
         isInCart,
         costTotal,
-        itemCartQty
+        itemCartQty,
       }}
     >
       {children}

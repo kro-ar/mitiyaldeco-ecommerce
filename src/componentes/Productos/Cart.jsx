@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CartContext } from "./CartContext";
 import { Link } from "react-router-dom";
 import ItemCart from "./ItemCart";
@@ -8,12 +8,20 @@ import { db } from "../../utils/firebaseConfig";
 const Cart = () => {
   //Se obtiene el contenido de la variabe global
   const ctx = useContext(CartContext);
+  const [totalCost, setTotalCost] = useState(0);
+  const [isEmpty, setIsEmpty] = useState(true);
+
+  useEffect(() => {
+    setTotalCost(ctx.costTotal);
+    setIsEmpty(ctx.ItemsTotal == 0);
+  }, [ctx]);
+
   const createOrder = async () => {
     const itemsForDB = ctx.cartList.map((item) => ({
       id: item.id,
       nombre: item.tittle,
       precio: item.price,
-      // cantidad:item.quantity + quantity
+      cantidad: item.quantity,
     }));
     let order = {
       buyer: {
@@ -23,11 +31,12 @@ const Cart = () => {
       },
       items: itemsForDB,
       date: serverTimestamp(),
-      total: ctx.totals,
+      total: ctx.costTotal,
     };
+  
     //se crea orders ,en la base de datos
     const newOrderRef = doc(collection(db, "orders"));
-    await setDoc(newOrderRef, order);
+    await setDoc(newOrderRef, order)
     alert(
       "Su orden ha sido procesada! Su numero de orden es " + newOrderRef.id
     );
@@ -50,12 +59,14 @@ const Cart = () => {
           </div>
         </div>
         <div className="col-8 ">
-          {
+          {isEmpty ? (
+            <h2 className="text-center">Agregue algun producto</h2>
+          ) : (
             //Se mapea el contenido y se imprime en la lista
             ctx.cartList.map((item) => (
               <ItemCart product={item} key={item.id} />
             ))
-          }
+          )}
         </div>
         <div className="row col-3">
           <h3 className="text-center ">Su orden</h3>
@@ -69,11 +80,11 @@ const Cart = () => {
             <strong>Total:</strong>
           </p>
           <p className="col-6">
-            ${ctx.totals}
-            <br />${ctx.totals * 0.05}
-            <br />${ctx.totals * 0.05}
+            ${totalCost}
+            <br />${totalCost * 0.05}
+            <br />${totalCost * 0.05}
             <br />
-            <strong>${ctx.totals}</strong>
+            <strong>${totalCost}</strong>
           </p>
           <div className="text-center">
             <button onClick={createOrder} type="button" className="btn p-2 ">

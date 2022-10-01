@@ -11,7 +11,7 @@ const ItemCart = ({product})=>{
                 </div>
                 <div className="col-8 mono-text">
                     <div className="row">
-                        <h3 className="col ">{product.title}</h3>
+                        <h3 className="col ">{product.tittle}</h3>
                         <button type="button" className="btn py-0 col-4"onClick={()=>{ctxItems.removeItem(product.id)}}>Eliminar Producto</button>
                     </div>
                     <p>
