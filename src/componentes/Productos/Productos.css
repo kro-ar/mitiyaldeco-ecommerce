@@ -1,4 +1,5 @@
 /*ItemCount Css*/
+
 .AddButtons{
     width: 10rem;
   }
@@ -21,6 +22,8 @@
     .btn  {
       background-color: #dcd7c9;
       color: #2C3639;
+      font-family:'Ubuntu', sans-serif ;
+      font-weight: bold;
     }
     .btn:hover,
     .circle:hover{
@@ -105,3 +108,9 @@
     
 
   }
+.font1{
+  font-family: 'Dancing Script', cursive;
+}
+.font2{
+  font-family: 'Ubuntu', sans-serif;
+}
