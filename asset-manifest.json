@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Ecomm-CarolinaArias/static/css/main.add4fe1d.css",
+    "main.js": "/Ecomm-CarolinaArias/static/js/main.e5507f3c.js",
+    "static/js/787.d7d25514.chunk.js": "/Ecomm-CarolinaArias/static/js/787.d7d25514.chunk.js",
+    "index.html": "/Ecomm-CarolinaArias/index.html",
+    "main.add4fe1d.css.map": "/Ecomm-CarolinaArias/static/css/main.add4fe1d.css.map",
+    "main.e5507f3c.js.map": "/Ecomm-CarolinaArias/static/js/main.e5507f3c.js.map",
+    "787.d7d25514.chunk.js.map": "/Ecomm-CarolinaArias/static/js/787.d7d25514.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.add4fe1d.css",
+    "static/js/main.e5507f3c.js"
+  ]
+}
